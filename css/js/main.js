@@ -1,14 +1,12 @@
 function login() {
-  const username = document.getElementById('username').value.trim();
-  const institute = document.getElementById('institute').value.trim();
-  const afn = document.getElementById('afn').value.trim();
-  const message = document.getElementById('message');
+  const username = document.getElementById('username').value;
+  const institute = document.getElementById('institute').value;
+  const afn = document.getElementById('afn').value;
 
-  if (!username || !institute || !afn) {
-    message.textContent = "Please fill in all fields.";
-  } else {
-    message.style.color = "green";
-    window.location.href = "dashboard.html";
+  // Store in sessionStorage
+  sessionStorage.setItem('username', username);
+  sessionStorage.setItem('institute', institute);
+  sessionStorage.setItem('afn', afn);
 
-  }
+  window.location.href = 'dashboard.html';
 }
