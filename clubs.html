@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Clubs</title>
+<style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px 20px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .club-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .club-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .club-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .club-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .club-card-content {
+      padding: 15px 20px 25px;
+    }
+
+    .club-card h3 {
+      margin: 10px 0;
+      font-size: 1.3rem;
+      color: #333;
+    }
+
+    .club-card p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #2575fc;
+      color: white;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    /* --- Modal --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #2575fc;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Campus Clubs</h1>
+    <p>Explore, Connect & Grow — Join a club that inspires you!</p>
+  </header>
+
+  <section class="club-container">
+    <div class="club-card" onclick="openModal('coding')">
+      <img src="https://source.unsplash.com/400x300/?coding,computer" alt="Coding Club">
+      <div class="club-card-content">
+        <h3>Coding Club</h3>
+        <p>Empowering students through coding competitions, projects, and hackathons.</p>
+        <span class="tag">Technical</span>
+      </div>
+    </div>
+
+    <div class="club-card" onclick="openModal('robotics')">
+      <img src="https://source.unsplash.com/400x300/?robotics,technology" alt="Robotics Club">
+      <div class="club-card-content">
+        <h3>Robotics Club</h3>
+        <p>Build, innovate, and program robots that bring technology to life.</p>
+        <span class="tag">Technical</span>
+      </div>
+    </div>
+
+    <div class="club-card" onclick="openModal('music')">
+      <img src="https://source.unsplash.com/400x300/?music,concert" alt="Music Club">
+      <div class="club-card-content">
+        <h3>Music Club</h3>
+        <p>For those who breathe rhythm and live melody — perform, jam, and vibe.</p>
+        <span class="tag">Cultural</span>
+      </div>
+    </div>
+
+    <div class="club-card" onclick="openModal('dance')">
+      <img src="https://source.unsplash.com/400x300/?dance,performance" alt="Dance Club">
+      <div class="club-card-content">
+        <h3>Dance Club</h3>
+        <p>Express yourself through movement — from hip-hop to classical.</p>
+        <span class="tag">Cultural</span>
+      </div>
+    </div>
+
+    <div class="club-card" onclick="openModal('sports')">
+      <img src="https://source.unsplash.com/400x300/?sports,football" alt="Sports Club">
+      <div class="club-card-content">
+        <h3>Sports Club</h3>
+        <p>Unleash your athletic spirit — from cricket to football, we play it all.</p>
+        <span class="tag">Sports</span>
+      </div>
+    </div>
+
+    <div class="club-card" onclick="openModal('literary')">
+      <img src="https://source.unsplash.com/400x300/?books,writing" alt="Literary Club">
+      <div class="club-card-content">
+        <h3>Literary Club</h3>
+        <p>For thinkers and storytellers — debate, write, and explore ideas.</p>
+        <span class="tag">Literary</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="coding" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('coding')">&times;</span>
+      <h2>Coding Club</h2>
+      <p>The Coding Club helps students enhance their coding skills through weekly challenges, workshops, and inter-college hackathons. Members learn web development, AI, and problem-solving together.</p>
+      <p><strong>Faculty Coordinator:</strong> Prof. A. Sharma</p>
+      <p><strong>Contact:</strong> codingclub@college.edu</p>
+    </div>
+  </div>
+
+  <div id="robotics" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('robotics')">&times;</span>
+      <h2>Robotics Club</h2>
+      <p>The Robotics Club focuses on designing, programming, and testing robots. Students work on exciting projects like line followers, drones, and AI-based robots.</p>
+      <p><strong>Faculty Coordinator:</strong> Dr. K. Verma</p>
+      <p><strong>Contact:</strong> robotics@college.edu</p>
+    </div>
+  </div>
+
+  <div id="music" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('music')">&times;</span>
+      <h2>Music Club</h2>
+      <p>The Music Club is home for singers, instrumentalists, and music producers. We organize unplugged sessions and annual cultural nights.</p>
+      <p><strong>Faculty Coordinator:</strong> Ms. P. Nair</p>
+      <p><strong>Contact:</strong> musicclub@college.edu</p>
+    </div>
+  </div>
+
+  <div id="dance" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('dance')">&times;</span>
+      <h2>Dance Club</h2>
+      <p>Our Dance Club brings together enthusiasts from all styles. From flash mobs to inter-college competitions, we dance it all!</p>
+      <p><strong>Faculty Coordinator:</strong> Mr. R. Singh</p>
+      <p><strong>Contact:</strong> danceclub@college.edu</p>
+    </div>
+  </div>
+
+  <div id="sports" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('sports')">&times;</span>
+      <h2>Sports Club</h2>
+      <p>The Sports Club encourages fitness, teamwork, and spirit. It manages tournaments, training, and fitness drives across the campus.</p>
+      <p><strong>Faculty Coordinator:</strong> Mr. T. Kumar</p>
+      <p><strong>Contact:</strong> sportsclub@college.edu</p>
+    </div>
+  </div>
+
+  <div id="literary" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('literary')">&times;</span>
+      <h2>Literary Club</h2>
+      <p>The Literary Club inspires creativity through debates, writing workshops, and poetry slams. We believe in the power of words.</p>
+      <p><strong>Faculty Coordinator:</strong> Dr. S. Rao</p>
+      <p><strong>Contact:</strong> literary@college.edu</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 College Clubs | Designed by Campus Chaos Team</p>
+  </footer>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      document.querySelectorAll('.modal').forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
