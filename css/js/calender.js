@@ -1,6 +1,7 @@
 const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date");
-const prevNextIcons = document.querySelectorAll(".icons span");
+const prevNextIcons = document.querySelectorAll(".icon");
+const addEventBtn = document.getElementById("add-event-btn");
 
 let date = new Date();
 let currYear = date.getFullYear();
@@ -11,8 +12,8 @@ const months = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-// Example events array
-const events = [
+// Default Events
+let events = [
   { date: "2025-10-15", title: "Design Review", color: "#28a745" },
   { date: "2025-10-20", title: "Team Meeting", color: "#dc3545" },
   { date: "2025-10-25", title: "Release Deadline", color: "#007bff" }
@@ -31,24 +32,19 @@ const renderCalendar = () => {
     liTag += `<li class="inactive">${lastDateOfLastMonth - i + 1}</li>`;
   }
 
-  // Current month days (with events)
+  // Current month days
   for (let i = 1; i <= lastDateOfMonth; i++) {
     let currentDateString = `${currYear}-${String(currMonth + 1).padStart(2, "0")}-${String(i).padStart(2, "0")}`;
-
-    // Check if today
     let isToday =
-      i === date.getDate() &&
+      i === new Date().getDate() &&
       currMonth === new Date().getMonth() &&
       currYear === new Date().getFullYear()
         ? "active"
         : "";
 
-    // Check if event exists
     let event = events.find(e => e.date === currentDateString);
     if (event) {
-      liTag += `<li class="event ${isToday}" style="background-color: ${event.color};" title="${event.title}">
-                  ${i}
-                </li>`;
+      liTag += `<li class="event ${isToday}" style="background-color:${event.color}" title="${event.title}">${i}</li>`;
     } else {
       liTag += `<li class="${isToday}">${i}</li>`;
     }
@@ -59,12 +55,11 @@ const renderCalendar = () => {
     liTag += `<li class="inactive">${i - lastDayOfMonth + 1}</li>`;
   }
 
-  // Update DOM
   currentDate.innerText = `${months[currMonth]} ${currYear}`;
   daysTag.innerHTML = liTag;
 };
 
-// Navigation icons
+// Navigation
 prevNextIcons.forEach(icon => {
   icon.addEventListener("click", () => {
     currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
@@ -76,9 +71,28 @@ prevNextIcons.forEach(icon => {
     } else {
       date = new Date();
     }
-
     renderCalendar();
   });
+});
+
+// Add new event
+addEventBtn.addEventListener("click", () => {
+  const eventDate = document.getElementById("event-date").value;
+  const eventTitle = document.getElementById("event-title").value.trim();
+  const eventColor = document.getElementById("event-color").value;
+
+  if (!eventDate || !eventTitle) {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  events.push({ date: eventDate, title: eventTitle, color: eventColor });
+  renderCalendar();
+
+  // Reset fields
+  document.getElementById("event-date").value = "";
+  document.getElementById("event-title").value = "";
+  alert("✅ Event added successfully!");
 });
 
 renderCalendar();
