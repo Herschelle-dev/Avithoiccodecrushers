@@ -17,7 +17,7 @@ body {
 }
 
 /* Container for all content */
-.container {
+.background {
   position: relative;
   width: 100%;
   max-width: 400px;
