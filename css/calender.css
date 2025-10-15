@@ -1,0 +1,158 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #003366, #007bff);
+}
+
+/* Calendar Container */
+.calendar-container {
+  background: #ffffff;
+  width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* Header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #003366;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.calendar-header .icons {
+  cursor: pointer;
+  font-size: 22px;
+  transition: 0.3s;
+  color: #007bff;
+}
+
+.calendar-header .icons:hover {
+  color: #0056b3;
+}
+
+.current-date {
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Weekdays */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  color: #007bff;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.weekdays li {
+  list-style: none;
+  padding: 8px 0;
+}
+
+/* Days Grid */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.days li {
+  list-style: none;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  color: #003366;
+  font-weight: 500;
+}
+
+.days li:hover {
+  background: #e8f0ff;
+}
+
+/* Inactive Days */
+.inactive {
+  color: #aaa;
+}
+
+/* Active (today) */
+.active {
+  background: #007bff;
+  color: #fff !important;
+}
+
+/* Event Days */
+.event {
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+
+.event::after {
+  content: "•";
+  position: absolute;
+  bottom: 5px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Add Event Form */
+.event-form {
+  margin-top: 20px;
+  text-align: center;
+  border-top: 1px solid #cce0ff;
+  padding-top: 15px;
+}
+
+.event-form h3 {
+  color: #003366;
+  margin-bottom: 10px;
+}
+
+.event-form input,
+.event-form button {
+  width: 90%;
+  padding: 8px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid #007bff;
+  outline: none;
+}
+
+.event-form input[type="color"] {
+  height: 35px;
+  cursor: pointer;
+}
+
+.event-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.event-form button:hover {
+  background: #0056b3;
+}
