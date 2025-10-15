@@ -12,7 +12,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     localStorage.setItem("afn", afn);
 
     // Redirect to dashboard.html
-    window.location.href = "dashboard.html";
+    window.location.href = "pages/dashboard.html";
   } else {
     alert("Please fill all fields before logging in!");
   }
