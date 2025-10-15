@@ -1,24 +1,16 @@
-function login() {
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
   const username = document.getElementById("username").value.trim();
   const institute = document.getElementById("institute").value.trim();
   const afn = document.getElementById("afn").value.trim();
-  const message = document.getElementById("message");
 
-  if (username === "" || institute === "" || afn === "") {
-    message.style.color = "red";
-    message.textContent = "⚠️ Please fill all the fields!";
-    return;
+  if (username && institute && afn) {
+    
+    // Future: You can redirect to home page or save details to localStorage
+    // localStorage.setItem("username", username);
+    // window.location.href = "home.html";
+  } else {
+    alert("Please fill all fields before logging in!");
   }
-
-  // Save details in localStorage
-  const userData = { username, institute, afn };
-  localStorage.setItem("userData", JSON.stringify(userData));
-
-  message.style.color = "lightgreen";
-  message.textContent = "✅ Login successful! Redirecting...";
-
-  // Redirect after a short delay
-  setTimeout(() => {
-    window.location.href = "home.html"; // Change this to your home page
-  }, 1500);
-}
+});

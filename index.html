@@ -2,44 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login Page</title>
+  <title>Login | JiffBud</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1> welcome to jiff bud ! </h1>
-<br>
-<h2> login to join our community </h2>
-<br>
-  <!-- Background pic and logo -->
-  <div class="background">
-    
-    <!-- Logo circle -->
+  <div class="background"></div>
+
+  <div class="login-container">
     <div class="logo-circle">
-      <img src="logo.png" alt="Company Logo">
+      <img src="your-logo.png" alt="Logo">
     </div>
+    <h1>Welcome to JiffBud!</h1>
+    <h3>Login to join our community</h3>
 
-    <!-- Login detailssss  -->
-    <div class="login-box">
-      <h2>Login</h2>
-<br>
-      <label for="username">Username:</label>
-      <input type="text" id="username" placeholder="Enter your username">
-<br>
-      <label for="institute">Institute Name:</label>
-      <input type="text" id="institute" placeholder="Enter your institute name">
-<br>
-      <label for="afn">AFN Number:</label>
-      <input type="text" id="afn" placeholder="Enter your AFN number">
-<br>
-      <button onclick="login()">Login</button>
-<br>
-      <p>Don't have an account? <a href="register.html">Register here</a></p>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="text" id="institute" placeholder="Institute Name" required>
+      <input type="text" id="afn" placeholder="AFN" required>
+      <button type="submit">Login</button>
+    </form>
 
-      <div id="message"></div>
-    </div>
+    <p class="footer">© 2025 JiffBud | All Rights Reserved</p>
   </div>
 
   <script src="css/js/main.js"></script>
-
 </body>
 </html>
