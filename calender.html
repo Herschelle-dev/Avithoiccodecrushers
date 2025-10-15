@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Calendar</title>
+  <link rel="stylesheet" href="css/calender.css">
+  <style>
+    /* Quick style block if not using a separate CSS file */
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 40px 0;
+    }
+    .calendar {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      padding: 24px;
+      width: 340px;
+    }
+    .current-date {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .icons span {
+      cursor: pointer;
+      padding: 6px 18px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      font-size: 1.3em;
+      font-weight: 700;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .icons span:hover {
+      background: #bdbdbd;
+    }
+    .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .days li {
+      list-style: none;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 4px;
+      position: relative;
+      background: #fafafa;
+      margin: 2px 0;
+      transition: background 0.2s;
+    }
+    .days li.active {
+      background: #2196f3;
+      color: #fff;
+      font-weight: bold;
+    }
+    .days li.inactive {
+      color: #bdbdbd;
+    }
+    .event-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-left: 3px;
+    }
+    .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 4px;
+      font-weight: 600;
+      color: #666;
+      font-size: 0.95em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="calendar">
+    <div class="current-date"></div>
+    <div class="icons">
+      <span id="prev">&#8249;</span>
+      <span id="next">&#8250;</span>
+    </div>
+    <div class="weekdays">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+    </div>
+    <ul class="days"></ul>
+  </div>
+  <script src="css/js/calender.js"></script>
