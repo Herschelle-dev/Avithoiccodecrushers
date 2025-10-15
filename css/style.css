@@ -1,0 +1,112 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Full page background */
+body {
+  height: 100vh;
+  background: url("../images/background.jpg") no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+/* Background overlay for readability */
+.background {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Logo circle */
+.logo-circle {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circle img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* Login box */
+.login-box label {
+  display: block;
+  margin: 10px 0 5px;
+  text-align: left;
+  color: #fff;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #45a049;
+}
+
+.login-box p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.login-box a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}
+
+#message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
